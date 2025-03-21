@@ -1,0 +1,42 @@
+import { useState } from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+
+const trips = [
+  { id: 1, destination: "Lunar Hotel", price: "$500K", date: "2025-08-10" },
+  { id: 2, destination: "Mars Orbital", price: "$1.2M", date: "2026-02-15" },
+  { id: 3, destination: "ISS Experience", price: "$250K", date: "2025-06-20" }
+];
+
+export default function SpaceBooking() {
+  const [selectedTrip, setSelectedTrip] = useState(null);
+
+  return (
+    <div className="p-8 space-y-6">
+      <h1 className="text-3xl font-bold text-center">Dubai to the Stars 🚀</h1>
+      <p className="text-center text-gray-600">Book your next space adventure now!</p>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {trips.map((trip) => (
+          <Card key={trip.id} className="p-4 border rounded-lg shadow-lg">
+            <CardContent>
+              <h2 className="text-xl font-semibold">{trip.destination}</h2>
+              <p className="text-gray-600">Price: {trip.price}</p>
+              <p className="text-gray-600">Date: {trip.date}</p>
+              <Button className="mt-4 w-full bg-blue-500 hover:bg-blue-600 text-white" onClick={() => setSelectedTrip(trip)}>
+                Book Now
+              </Button>
+            </CardContent>
+          </Card>
+        ))}
+      </div>
+      {selectedTrip && (
+        <div className="p-6 bg-gray-100 rounded-lg text-center mt-6 border">
+          <h3 className="text-xl font-bold text-green-600">Booking Confirmed! 🎉</h3>
+          <p className="text-gray-700">You booked a trip to {selectedTrip.destination}.</p>
+          <p className="text-gray-700">Departure Date: {selectedTrip.date}</p>
+          <p className="text-gray-500 text-sm mt-2">Check your email for more details.</p>
+        </div>
+      )}
+    </div>
+  );
+}
