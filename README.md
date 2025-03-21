@@ -17,7 +17,7 @@ Welcome to **Dubai to the Stars**, the ultimate space travel booking experience!
 ## 🚀 Getting Started
 ### 1️⃣ Clone the Repository
 ```bash
-git clone https://github.com/lailahamada/space travel.git
+git clone https://github.com/lailahamada/space-travel.git
 cd space-travel-booking
 ```
 
